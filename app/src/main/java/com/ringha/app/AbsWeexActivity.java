@@ -280,8 +280,8 @@ public abstract class AbsWeexActivity extends AppCompatActivity implements IWXRe
 
     CommonUtils.throwIfNull(mContainer, new RuntimeException("Can't render page, container is null"));
 
-    Map<String, Object> options = new HashMap<>();
     WXLogUtils.e(mPageName+"========renderPageByURL============url="+url+"\n=============jsonInitData="+jsonInitData);
+    Map<String, Object> options = new HashMap<>();
     options.put(WXSDKInstance.BUNDLE_URL, url);
     mInstance.renderByUrl(
         getPageName(),
