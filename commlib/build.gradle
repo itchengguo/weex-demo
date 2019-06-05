@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+//def WEEX_SDK = 'weex-sdk-0.24.0.aar'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // weex sdk and fastjson
+    //    implementation 'com.taobao.android:weex_sdk:0.24.0@aar'
+//    api(name: 'weex_sdk-0.24.0', ext: 'aar')
+    api 'com.alibaba:fastjson:1.1.46.android'
+    //support library dependencies
+    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'com.android.support:support-v4:28.0.0'
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:design:28.0.0'
+
+    api 'com.squareup.okhttp3:okhttp:3.9.1'
+    api 'com.squareup.okhttp:okhttp-ws:2.3.0'
+    api 'com.squareup.okio:okio:1.13.0'
+    api 'com.squareup.picasso:picasso:2.5.2'
+    api 'com.journeyapps:zxing-android-embedded:3.4.0'
+
+}
